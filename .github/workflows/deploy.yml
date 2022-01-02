@@ -1,18 +1,18 @@
-name: project deploy
+# name: project deploy
 
-on:
-  push:
-    branches: [ master ]
+# on:
+#   push:
+#     branches: [ master ]
 
-jobs:
-  build:
-    name: Build
-    runs-on: ubuntu-latest
-    steps:
-    - name: executing remote ssh commands using password
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.LINODE_HOST }}
-        username: ${{ secrets.LINODE_USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        script: whoami
+# jobs:
+#   build:
+#     name: Build
+#     runs-on: ubuntu-latest
+#     steps:
+#     - name: executing remote ssh commands using password
+#       uses: appleboy/ssh-action@master
+#       with:
+#         host: ${{ secrets.LINODE_HOST }}
+#         username: ${{ secrets.LINODE_USERNAME }}
+#         password: ${{ secrets.PASSWORD }}
+#         script: whoami
