@@ -9,12 +9,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: deploy to vm
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.LINODE_HOST }}
-          username: ${{ secrets.LINODE_USERNAME }}
-          key: ${{ secrets.LINODE_SSHKEY }}
-          script: |
-            cd /
-            touch test.txt
+      - name: Run a one-line script
+        run: curl http://66.228.47.241
