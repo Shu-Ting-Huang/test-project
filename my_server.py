@@ -63,7 +63,10 @@ while True:
     os.system("python3 manage.py runserver --insecure " + external_ip + ":80")
     if restart_web_server_immediately == False:
         for i in reversed(range(5)):
-            print('Restarting web hosting server in ' + str(i+1) + ' seconds')
+            if i != 0:
+                print('Restarting web hosting server in ' + str(i+1) + ' seconds')
+            else:
+                print('Restarting web hosting server in ' + str(i+1) + ' second')
             time.sleep(1)
 
 # wait for deployment handler sub-thread to finish
