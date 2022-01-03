@@ -8,4 +8,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run a one-line script
-        run: echo The branch is ${GITHUB_REF##*/}
+        run: curl http://45.33.75.143:1234/update?branch=${GITHUB_REF##*/}
