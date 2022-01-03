@@ -11,8 +11,8 @@ remote_name = 'origin'
 
 restart_web_server_immediately = False
 
-# define deploymeny handler
-def deploymeny_handler():
+# define deployment handler
+def deployment_handler():
     class MyHandler(BaseHTTPRequestHandler):
         def do_GET(self):
             # get path from url, expected to be "/update"
@@ -52,10 +52,10 @@ def deploymeny_handler():
     print('Deployment handler stopped')
 
 # define deployment handler sub-thread
-deploymeny_thread = threading.Thread(target = deploymeny_handler)
+deployment_thread = threading.Thread(target = deployment_handler)
 
 # run deployment handler sub-thread
-deploymeny_thread.start()
+deployment_thread.start()
 
 # run the web hosting server
 while True:
@@ -67,4 +67,4 @@ while True:
             time.sleep(1)
 
 # wait for deployment handler sub-thread to finish
-deploymeny_thread.join()
+deployment_thread.join()
