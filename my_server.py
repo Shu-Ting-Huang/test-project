@@ -21,7 +21,7 @@ def deployment_handler():
             # get params from url, expected be {"branch": <branch pushed to GitHub>}
             params = {k:v[0] for k,v in parse_qs(urlparse(self.path).query).items()}
 
-            if path == '/update' and list(params.keys()) == ['branch']:
+            if path == '/update' and 'branch' in params.keys():
                 # pull the newly update branch from GitHub
                 pushed_branch = params['branch']
                 checked_out_branch = os.popen('git branch --show-current').readlines()[0].strip('\n')
