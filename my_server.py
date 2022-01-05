@@ -6,7 +6,7 @@ from urllib.parse import urlparse, parse_qs
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 external_ip = urllib.request.urlopen('https://api.ipify.org').read().decode('utf8')
-port = 1234
+deployment_port = 1234
 remote_name = 'origin'
 
 restart_web_server_immediately = False
@@ -46,8 +46,8 @@ def run_deployment_handler():
                 self.wfile.write(bytes('<h1>Successfully pulled branch ' + pushed_branch + ' from GitHub' + ' </h1>','utf-8'))
     
     # run deployment handler
-    server = HTTPServer((external_ip, port), MyHandler)
-    print('Deployment handler started on ' + external_ip + ':' + str(port))
+    server = HTTPServer((external_ip, deployment_port), MyHandler)
+    print('Deployment handler started on ' + external_ip + ':' + str(deployment_port))
     server.serve_forever()
     print('Deployment handler stopped')
 
