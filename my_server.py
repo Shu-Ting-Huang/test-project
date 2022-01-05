@@ -12,7 +12,7 @@ remote_name = 'origin'
 restart_web_server_immediately = False
 
 # define deployment handler
-def deployment_handler():
+def run_deployment_handler():
     class MyHandler(BaseHTTPRequestHandler):
         def do_GET(self):
             # get path from url, expected to be "/update"
@@ -52,7 +52,7 @@ def deployment_handler():
     print('Deployment handler stopped')
 
 # define deployment handler sub-thread
-deployment_thread = threading.Thread(target = deployment_handler)
+deployment_thread = threading.Thread(target = run_deployment_handler)
 
 # run deployment handler sub-thread
 deployment_thread.start()
