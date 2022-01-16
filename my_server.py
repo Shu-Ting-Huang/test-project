@@ -9,8 +9,6 @@ external_ip = urllib.request.urlopen('https://api.ipify.org').read().decode('utf
 deployment_port = 1234
 remote_name = 'origin'
 
-restart_web_server_immediately = False
-
 # define deployment handler
 def run_deployment_handler():
     class MyHandler(BaseHTTPRequestHandler):
@@ -31,14 +29,6 @@ def run_deployment_handler():
                 else:
                     os.system('git branch --force ' + pushed_branch + ' ' + remote_name + '/' + pushed_branch)
 
-                # load and resave manage.py to force the server to reload
-                global restart_web_server_immediately
-                restart_web_server_immediately = True
-                with open('manage.py', 'r') as f:
-                    manage_py = f.read()
-                with open('manage.py', 'w') as f:
-                    f.write(manage_py)
-
                 # send response
                 self.send_response(200)
                 self.send_header('Content-type', 'text/html')
@@ -58,16 +48,7 @@ deployment_thread = threading.Thread(target = run_deployment_handler)
 deployment_thread.start()
 
 # run the web hosting server
-while True:
-    restart_web_server_immediately = False
-    os.system("python3 manage.py runserver --insecure " + external_ip + ":80")
-    if restart_web_server_immediately == False:
-        for i in reversed(range(5)):
-            if i != 0:
-                print('Restarting web hosting server in ' + str(i+1) + ' seconds')
-            else:
-                print('Restarting web hosting server in ' + str(i+1) + ' second')
-            time.sleep(1)
+os.system("python3 manage.py runserver --insecure " + external_ip + ":80")
 
 # wait for deployment handler sub-thread to finish
 deployment_thread.join()
