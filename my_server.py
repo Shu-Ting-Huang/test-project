@@ -11,6 +11,7 @@ remote_name = 'origin'
 
 # define deployment handler
 def run_deployment_handler():
+    # MyHandler defines how deployment requests are handled
     class MyHandler(BaseHTTPRequestHandler):
         def do_GET(self):
             # get path from url, expected to be "/update"
@@ -35,7 +36,7 @@ def run_deployment_handler():
                 self.end_headers()
                 self.wfile.write(bytes('<h1>Successfully pulled branch ' + pushed_branch + ' from GitHub' + ' </h1>','utf-8'))
     
-    # run deployment handler
+    # host deployment handler
     server = HTTPServer((external_ip, deployment_port), MyHandler)
     print('Deployment handler started on ' + external_ip + ':' + str(deployment_port))
     server.serve_forever()
