@@ -1,0 +1,3 @@
+[submodule "Django-deployment-handler"]
+	path = Django-deployment-handler
+	url = https://github.com/Shu-Ting-Huang/Django-deployment-handler.git
