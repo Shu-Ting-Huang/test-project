@@ -27,6 +27,7 @@ def run_deployment_handler():
                 os.system('git fetch ' + remote_name + ' ' + pushed_branch)
                 if checked_out_branch == pushed_branch:
                     os.system('git reset --hard ' + remote_name + '/' + pushed_branch)
+                    os.system('git submodule init')
                     os.system('git submodule update')
                 else:
                     os.system('git branch --force ' + pushed_branch + ' ' + remote_name + '/' + pushed_branch)
