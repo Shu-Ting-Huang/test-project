@@ -21,16 +21,24 @@
         </style>
         <script type="text/javascript">
             window.onload = init;
+            window.onresize = setWindowSize;
+
             function init() {
                 if (window.Event) {
                     document.captureEvents(Event.MOUSEMOVE);
                 }
                 document.onmousemove = getCursorXY;
+                setWindowSize();
             }
             
             function getCursorXY(e) {
                 document.getElementById('cursorX').innerHTML = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
                 document.getElementById('cursorY').innerHTML = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+            }
+
+            function setWindowSize() {
+                document.getElementById('width').innerHTML = window.innerWidth;
+                document.getElementById('height').innerHTML = window.innerHeight;
             }
             </script>
     </head>
@@ -39,6 +47,7 @@
         <p style="text-align: center;">Your IP is {{client_IP}}</p>
         <!-- https://www.dev-notes.com/blog/2008/07/30/get-current-mouse-cursor-position-with-javascript/ -->
         <p style="text-align: center;">Your mouse cursor is at (<span id="cursorX"> </span>, <span id="cursorY"> </span>)</p>
+        <p style="text-align: center;">The window size is <span id="width"></span> x <span id="height"></span></p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
