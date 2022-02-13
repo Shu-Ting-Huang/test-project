@@ -19,10 +19,25 @@
                 margin: auto;
             }
         </style>
+        <script type="text/javascript">
+            window.onload = init;
+            function init() {
+                if (window.Event) {
+                    document.captureEvents(Event.MOUSEMOVE);
+                }
+                document.onmousemove = getCursorXY;
+            }
+            
+            function getCursorXY(e) {
+                document.getElementById('cursorX').innerHTML = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+                document.getElementById('cursorY').innerHTML = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+            }
+            </script>
     </head>
     <body>
         <h1 style="text-align: center;">Test Page</h1>
         <p style="text-align: center;">Your IP is {{client_IP}}</p>
+        <p style="text-align: center;">Your mouse cursor is at (<span id="cursorX"> </span>, <span id="cursorY"> </span>)</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
