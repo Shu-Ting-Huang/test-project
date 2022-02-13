@@ -29,6 +29,7 @@
                 }
                 document.onmousemove = getCursorXY;
                 setWindowSize();
+                document.getElementById("os").innerHTML = getOS();
             }
             
             function getCursorXY(e) {
@@ -40,6 +41,26 @@
                 document.getElementById('width').innerHTML = window.innerWidth;
                 document.getElementById('height').innerHTML = window.innerHeight;
             }
+            function getOS() {
+                var userAgent = window.navigator.userAgent,
+                    platform = window.navigator.platform,
+                    macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K'],
+                    windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE'],
+                    iosPlatforms = ['iPhone', 'iPad', 'iPod'],
+                    os = null;
+                if (macosPlatforms.indexOf(platform) !== -1) {
+                    os = 'Mac OS';
+                } else if (iosPlatforms.indexOf(platform) !== -1) {
+                    os = 'iOS';
+                } else if (windowsPlatforms.indexOf(platform) !== -1) {
+                    os = 'Windows';
+                } else if (/Android/.test(userAgent)) {
+                    os = 'Android';
+                } else if (!os && /Linux/.test(platform)) {
+                    os = 'Linux';
+                }
+                return os;
+            }
             </script>
     </head>
     <body>
@@ -48,6 +69,7 @@
         <!-- https://www.dev-notes.com/blog/2008/07/30/get-current-mouse-cursor-position-with-javascript/ -->
         <p style="text-align: center;">Your mouse cursor is at (<span id="cursorX"> </span>, <span id="cursorY"> </span>)</p>
         <p style="text-align: center;">The window size is <span id="width"></span> x <span id="height"></span></p>
+        <p style="text-align: center;">Your OS is <span id="os"></span></p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
         <p style="text-align: center;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum, obcaecati. Labore eius porro, adipisci blanditiis similique, rem ullam minima sed dolore iste ad illo voluptates amet fugiat ipsam nulla praesentium.</p>
