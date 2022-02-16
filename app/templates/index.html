@@ -30,8 +30,8 @@
                 document.onmousemove = getCursorXY;
                 setWindowSize();
                 document.getElementById("os").innerHTML = getOS();
-                document.getElementById("userAgent").innerHTML = window.navigator.userAgent;
-                document.getElementById("platform").innerHTML = window.navigator.platform;
+                document.getElementById("userAgent").innerHTML = '"' + window.navigator.userAgent + '"';
+                document.getElementById("platform").innerHTML = '"' + window.navigator.platform + '"';
             }
             
             function getCursorXY(e) {
