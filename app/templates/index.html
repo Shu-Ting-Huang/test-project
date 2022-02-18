@@ -64,6 +64,17 @@
                 }
                 return os;
             }
+            function hoverROCflag() {
+                document.getElementById("hoverInfo").innerHTML = "Hovering on ROC flag.";
+                document.getElementById("hoverInfo").style.visibility = "visible";
+            }
+            function hoverUSflag() {
+                document.getElementById("hoverInfo").innerHTML = "Hovering on US flag.";
+                document.getElementById("hoverInfo").style.visibility = "visible";
+            }
+            function clearHover() {
+                document.getElementById("hoverInfo").style.visibility = "hidden";
+            }
             var clickCount = 0;
             function clickButton() {
                 clickCount ++;
@@ -90,12 +101,13 @@
         <p style="text-align: center;">Your OS is <span id="os"></span></p>
         <p style="text-align: center;">window.navigator.userAgent = <span id="userAgent" style="color: red;"></span></p>
         <p style="text-align: center;">window.navigator.platform = <span id="platform" style="color: red;"></span></p>
+        <p id="hoverInfo" style="text-align: center; visibility: hidden;">?</p>
         <div class="row">
             <div class="column">
-                <img style="width: 28%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/320px-Flag_of_the_Republic_of_China.svg.png" alt="">
+                <img style="width: 28%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/320px-Flag_of_the_Republic_of_China.svg.png" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()">
             </div>
             <div class="column">
-                <img style="width: 35.5%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png" alt="">
+                <img style="width: 35.5%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png" alt="" onmouseover="hoverUSflag()" onmouseout="clearHover()">
             </div>
         </div>
         <div class="col text-center">
