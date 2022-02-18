@@ -64,8 +64,15 @@
                 }
                 return os;
             }
+            var clickCount = 0;
             function clickButton() {
-                document.getElementById("buttonSignal").innerHTML = "Button clicked !";
+                clickCount ++;
+                if (clickCount == 1) {
+                    document.getElementById("buttonSignal").innerHTML = clickCount + " click";
+                } else {
+                    document.getElementById("buttonSignal").innerHTML = clickCount + " clicks";
+                }
+                
             }
             </script>
     </head>
@@ -89,6 +96,6 @@
         <div class="col text-center">
             <button type="button" class="btn btn-success" onclick="clickButton()">Button</button>
         </div>
-        <div class="col text-center" id="buttonSignal"></div>
+        <div class="col text-center" id="buttonSignal" style="padding-top: 5px;"></div>
     </body>
 </html>
