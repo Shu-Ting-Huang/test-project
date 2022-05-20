@@ -73,8 +73,8 @@
                 document.getElementById("resetButton").style.visibility = "hidden";
             }
             function clickBrown() {
-                // document.getElementById("hoverInfo").innerHTML = "Clicked on Brown.";
                 document.getElementById("hoverInfo").style.visibility = "visible";
+                setTimeout(() => {document.getElementById("hoverInfo").style.visibility = "hidden";}, 1000)
             }
             </script>
     </head>
