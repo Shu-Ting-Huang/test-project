@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>想念兔兔的熊大</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            .row {
+                display: flex;
+            }
+            .column {
+                flex: 50%;
+                padding: 5px;
+            }
+            .centered_image {
+                display: block;
+                margin: auto;
+            }
+        </style>
+        <script type="text/javascript">
+            window.onload = init;
+            window.onresize = setWindowSize;
+
+            function init() {
+                if (window.Event) {
+                    document.captureEvents(Event.MOUSEMOVE);
+                }
+                document.onmousemove = setCursorXY;
+                setWindowSize();
+                document.getElementById("userAgent").innerHTML = '"' + window.navigator.userAgent + '"';
+                document.getElementById("platform").innerHTML = '"' + window.navigator.platform + '"';
+            }
+            
+            function setCursorXY(e) {
+                document.getElementById('cursorX').innerHTML = (window.Event) ? e.pageX : event.clientX + (document.documentElement.scrollLeft ? document.documentElement.scrollLeft : document.body.scrollLeft);
+                document.getElementById('cursorY').innerHTML = (window.Event) ? e.pageY : event.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
+            }
+
+            function setWindowSize() {
+                document.getElementById('width').innerHTML = window.innerWidth;
+                document.getElementById('height').innerHTML = window.innerHeight;
+            }
+
+            function hoverROCflag() {
+                document.getElementsByTagName("img")[0].style.cursor = "pointer";
+                document.getElementById("hoverInfo").innerHTML = "Hovering on ROC flag.";
+                document.getElementById("hoverInfo").style.visibility = "visible";
+            }
+            function hoverUSflag() {
+                document.getElementsByTagName("img")[1].style.cursor = "pointer";
+                document.getElementById("hoverInfo").innerHTML = "Hovering on US flag.";
+                document.getElementById("hoverInfo").style.visibility = "visible";
+            }
+            function clearHover() {
+                document.getElementById("hoverInfo").style.visibility = "hidden";
+            }
+
+            var clickCount = 0;
+            function clickButton() {
+                clickCount ++;
+                if (clickCount == 1) {
+                    document.getElementById("buttonSignal").innerHTML = clickCount + " click";
+                } else {
+                    document.getElementById("buttonSignal").innerHTML = clickCount + " clicks";
+                }
+                document.getElementById("resetButton").style.visibility = "visible";
+            }
+            function resetCount() {
+                clickCount = 0;
+                document.getElementById("buttonSignal").innerHTML = '';
+                document.getElementById("resetButton").style.visibility = "hidden";
+            }
+            </script>
+    </head>
+    <body>
+        <h1 style="text-align: center;">想念兔兔的熊大</h1>
+        <p id="hoverInfo" style="text-align: center; visibility: hidden;">?</p>
+        <div class="row">
+            <div class="column">
+                <img style="width: 28%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/320px-Flag_of_the_Republic_of_China.svg.png" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on ROC flag."; document.getElementsByTagName("img")[0].style.cursor = "default";'>
+            </div>
+            <div class="column">
+                <img style="width: 35.5%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png" alt="" onmouseover="hoverUSflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on US flag."; document.getElementsByTagName("img")[1].style.cursor = "default";'>
+            </div>
+        </div>
+        <div class="col text-center">
+            <button type="button" class="btn btn-success btn-lg" onclick="clickButton()">Button</button>
+        </div>
+        <div class="col text-center" id="buttonSignal" style="padding-top: 5px; padding-bottom: 5px;"></div>
+        <div id="resetButton" class="col text-center" style="visibility: hidden;">
+            <button type="button" class="btn btn-danger" onclick="resetCount()">Reset</button>
+        </div>
+    </body>
+</html>
