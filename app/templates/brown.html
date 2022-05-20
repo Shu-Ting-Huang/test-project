@@ -80,12 +80,5 @@
         <h1 style="text-align: center;">想念兔兔的熊大</h1>
         <p id="hoverInfo" style="text-align: center; visibility: hidden;">?</p>
         <img style="width: 28%;" class="centered_image" src="{% static 'brown.png' %}" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on ROC flag."; document.getElementsByTagName("img")[0].style.cursor = "default";'>
-        <div class="col text-center">
-            <button type="button" class="btn btn-success btn-lg" onclick="clickButton()">Button</button>
-        </div>
-        <div class="col text-center" id="buttonSignal" style="padding-top: 5px; padding-bottom: 5px;"></div>
-        <div id="resetButton" class="col text-center" style="visibility: hidden;">
-            <button type="button" class="btn btn-danger" onclick="resetCount()">Reset</button>
-        </div>
     </body>
 </html>
