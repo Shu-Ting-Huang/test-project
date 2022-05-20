@@ -73,14 +73,16 @@
                 document.getElementById("resetButton").style.visibility = "hidden";
             }
             function clickBrown() {
-                document.getElementById("hoverInfo").innerHTML = "Clicked on Brown.";
+                // document.getElementById("hoverInfo").innerHTML = "Clicked on Brown.";
                 document.getElementById("hoverInfo").style.visibility = "visible";
             }
             </script>
     </head>
     <body>
         <h1 style="text-align: center;">想念兔兔的熊大</h1>
-        <p id="hoverInfo" style="text-align: center; visibility: hidden;">?</p>
+        <p id="hoverInfo" style="text-align: center; visibility: hidden;">
+            <img style="width: 5%;" src="{% static 'heart.png' %}">
+        </p>
         <img style="width: 28%;" class="centered_image" src="{% static 'brown.png' %}" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()" onclick='clickBrown()'>
     </body>
 </html>
