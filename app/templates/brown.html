@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>想念兔兔的熊大</title>
+        {% load static %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <style>
             * {
@@ -78,14 +79,7 @@
     <body>
         <h1 style="text-align: center;">想念兔兔的熊大</h1>
         <p id="hoverInfo" style="text-align: center; visibility: hidden;">?</p>
-        <div class="row">
-            <div class="column">
-                <img style="width: 28%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/320px-Flag_of_the_Republic_of_China.svg.png" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on ROC flag."; document.getElementsByTagName("img")[0].style.cursor = "default";'>
-            </div>
-            <div class="column">
-                <img style="width: 35.5%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png" alt="" onmouseover="hoverUSflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on US flag."; document.getElementsByTagName("img")[1].style.cursor = "default";'>
-            </div>
-        </div>
+        <img style="width: 28%;" class="centered_image" src="{% static 'brown.png' %}" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on ROC flag."; document.getElementsByTagName("img")[0].style.cursor = "default";'>
         <div class="col text-center">
             <button type="button" class="btn btn-success btn-lg" onclick="clickButton()">Button</button>
         </div>
