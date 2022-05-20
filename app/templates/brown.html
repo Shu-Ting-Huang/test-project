@@ -73,6 +73,7 @@
                 document.getElementById("resetButton").style.visibility = "hidden";
             }
             function clickBrown() {
+                document.getElementById("poke_text").style.visibility = "hidden";
                 document.getElementById("hoverInfo").style.visibility = "visible";
                 setTimeout(() => {document.getElementById("hoverInfo").style.visibility = "hidden";}, 1000)
             }
@@ -85,5 +86,6 @@
             <img style="width: 15%;" src="{% static 'heart.png' %}">
         </p>
         <img style="width: 80%;" class="centered_image" src="{% static 'brown.png' %}" alt="" onclick='clickBrown()'>
+        <p id="poke_text" style="text-align: center;">(請戳熊大)</p>
     </body>
 </html>
