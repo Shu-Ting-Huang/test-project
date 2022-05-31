@@ -11,8 +11,9 @@ def leave_record(ip, message):
             data = ip, datetime.now().strftime('%Y-%m-%d %H:%M:%S'), message
             cnx.cursor().execute(query, data)
             cnx.commit()
-    except:
+    except Exception as e:
         print("Error connecting to database")
+        print(str(e))
 
 # Create your views here.
 
