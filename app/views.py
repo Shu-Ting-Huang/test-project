@@ -6,7 +6,7 @@ from datetime import datetime
 from threading import Thread
 def leave_record(ip, message):
     try:
-        with connect(host='104.200.31.89',user='user',password='password',database='usage_analysis') as cnx:
+        with connect(host='104.200.31.89',user='test_project',password='password',database='usage_analysis') as cnx:
             query = 'INSERT INTO request_record (client_IP,datetime,description) VALUES (%s,%s,%s);'
             data = ip, datetime.now().strftime('%Y-%m-%d %H:%M:%S'), message
             cnx.cursor().execute(query, data)
