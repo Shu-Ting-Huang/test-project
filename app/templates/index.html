@@ -44,9 +44,9 @@
                 document.getElementById('height').innerHTML = window.innerHeight;
             }
 
-            function hoverROCflag() {
+            function hoverTaiwanFlag() {
                 document.getElementsByTagName("img")[0].style.cursor = "pointer";
-                document.getElementById("hoverInfo").innerHTML = "Hovering on ROC flag.";
+                document.getElementById("hoverInfo").innerHTML = "Hovering on Taiwan flag.";
                 document.getElementById("hoverInfo").style.visibility = "visible";
             }
             function hoverUSflag() {
@@ -86,7 +86,7 @@
         <p id="hoverInfo" style="text-align: center; visibility: hidden;">?</p>
         <div class="row">
             <div class="column">
-                <img style="width: 28%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/320px-Flag_of_the_Republic_of_China.svg.png" alt="" onmouseover="hoverROCflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on ROC flag."; document.getElementsByTagName("img")[0].style.cursor = "default";'>
+                <img style="width: 28%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Flag_of_the_Republic_of_China.svg/320px-Flag_of_the_Republic_of_China.svg.png" alt="" onmouseover="hoverTaiwanFlag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on Taiwan flag."; document.getElementsByTagName("img")[0].style.cursor = "default";'>
             </div>
             <div class="column">
                 <img style="width: 35.5%;" class="centered_image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/320px-Flag_of_the_United_States.svg.png" alt="" onmouseover="hoverUSflag()" onmouseout="clearHover()" onclick='document.getElementById("hoverInfo").innerHTML = "Clicked on US flag."; document.getElementsByTagName("img")[1].style.cursor = "default";'>
